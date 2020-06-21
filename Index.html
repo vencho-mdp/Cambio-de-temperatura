@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<h3>Cambio de unidades de temperatura</h3>
+
+<input type="text" id="C" size="40" value="0" onchange="Cfunc()"/>
+    <label for="C"> C </label>
+
+    </br>
+
+    <input type="text" id="K" size="40" value="0" onchange="Kfunc()" />
+    <label for="K"> K </label>
+
+    </br>
+
+    <input type="text" id="F" size="40" value="0" onchange="Ffunc()" />
+    <label for="F"> F </label>
+
+    <script> var C, K, F, cad, aud;
+        function init()
+        {
+            C = document.getElementById("C");
+            K = document.getElementById("K");
+            F = document.getElementById("F");
+        }
+        
+        function Cfunc()
+        {
+            K.value = parseFloat(C.value) + 273;
+            F.value = parseFloat(C.value) * 1,8 + 32;
+        }
+        
+        function Ffunc()
+        {
+            C.value =  (parseFloat(F.value) - 32) * 5/9  ;
+            K.value = (parseFloat(F.value)-32) * 5/9 + 273.15;
+        }
+    
+        
+        function Kfunc()
+        {
+            C.value = parseFloat(K.value) - 273;
+            F.value = (parseFloat(K.value) - 273) * 1.8 + 32;
+        }
+        
+        init();</script>
+     
+</body>
+
+</html>
