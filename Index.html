@@ -1,51 +1,87 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <link rel="stylesheet" href="Index.css" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name='author' content="Vencholin">
+    </head>
 
 <body>
+    <div id=Cambio-de-Temperatura>
+         <h3>Cambio de unidades de temperatura</h3>
+         <input type="text" id="C" size="18" value="0" onchange="Cfunc()" />
+         <label id="C" for="C"> C </label>
+         </br>
+         <input type="text" id="K" size="18" value="0" onchange="Kfunc()" />
+         <label id="K" for="K"> K </label>
+         </br>
+         <input type="text" id="F" size="18" value="0" onchange="Ffunc()" />
+         <label id="F" for="F"> F </label>
+    </div>
 
-<h3>Cambio de unidades de temperatura</h3>
 
-<input type="text" id="C" size="40" value="0" onchange="Cfunc()"/>
-    <label for="C"> C </label>
+    
+   </div>
 
-    </br>
 
-    <input type="text" id="K" size="40" value="0" onchange="Kfunc()" />
-    <label for="K"> K </label>
+    <script> var C, K, F;
 
-    </br>
+    
 
-    <input type="text" id="F" size="40" value="0" onchange="Ffunc()" />
-    <label for="F"> F </label>
-
-    <script> var C, K, F, cad, aud;
         function init()
         {
             C = document.getElementById("C");
             K = document.getElementById("K");
             F = document.getElementById("F");
+            
         }
         
         function Cfunc()
-        {
-            K.value = parseFloat(C.value) + 273;
-            F.value = parseFloat(C.value) * 1.8 + 32;
+        { 
+            document.getElementById('C').style.color = 'red'
+            document.getElementById('K').style.color = 'black'
+            document.getElementById('F').style.color = 'black'
+            K.value = (parseFloat(C.value) + 273).toFixed(2);
+            F.value = (parseFloat(C.value) * 1.8 + 32).toFixed(2);
+             if (isNaN(document.getElementById("K").value)){
+                K.value = 'No ha insertado un número' 
+                F.value = 'No ha insertado un número' 
+                alert('Este programa NO admite letras')
+             }
         }
         
         function Ffunc()
-        {
-            C.value =  (parseFloat(F.value) - 32) * 5/9  ;
-            K.value = (parseFloat(F.value)-32) * 5/9 + 273.15;
+        {   document.getElementById('F').style.color = 'red'
+            document.getElementById('K').style.color = 'black'
+            document.getElementById('C').style.color = 'black'
+            C.value =  ((parseFloat(F.value) - 32) * 5/9).toFixed(2)  ;
+            K.value = ((parseFloat(F.value)-32) * 5/9 + 273).toFixed(2);
+            if (isNaN(document.getElementById("K").value)){
+                K.value = 'No ha insertado un número' 
+                C.value = 'No ha insertado un número' 
+                alert('Este programa NO admite letras')
+             }
+            
         }
     
         
         function Kfunc()
         {
-            C.value = parseFloat(K.value) - 273;
-            F.value = (parseFloat(K.value) - 273) * 1.8 + 32;
+            document.getElementById('K').style.color = 'red'
+            document.getElementById('F').style.color = 'black'
+            document.getElementById('C').style.color = 'black'
+            C.value = (parseFloat(K.value) - 273).toFixed(2);
+            F.value = ((parseFloat(K.value) - 273) * 1.8 + 32).toFixed(2);
+            if (isNaN(document.getElementById("F").value)){
+                F.value = 'No ha insertado un número' 
+                C.value = 'No ha insertado un número' 
+                alert('Este programa NO admite letras')
+             }  
         }
         
-        init();</script>
+        init();
+
+        </script>
      
 </body>
 
