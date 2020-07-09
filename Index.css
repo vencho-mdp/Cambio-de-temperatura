@@ -1,0 +1,18 @@
+body{
+    background-color:rgb(220, 236, 243);
+}
+
+#Cambio-de-Temperatura{
+border-style: groove;
+font-family: cursive;
+background-color:rgb(200, 239, 246);
+height: 170px;
+width: 350px;
+position: fixed;
+text-align: center;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+box-shadow: 0px 0px 100px #444;
+}
+
